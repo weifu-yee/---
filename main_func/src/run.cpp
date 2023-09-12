@@ -20,6 +20,8 @@ int main(int argc, char **argv){
     ros::NodeHandle nh;
     ros::Publisher orientation_pub = nh.advertise<std_msgs::Int8>("/cmd_ori", 1);
     ros::Subscriber node_sub = nh.subscribe("/node_detect",1,Callback);
+    ros::Publisher cam_pub = nh.advertise<std_msgs::Int8>("/cmd_cam", 1);
+    ros::Subscriber number_sub = nh.subscribe("/numbers",1,Callback);
     ros::Rate rate(20); //20Hz
 
     MAP::buildNode();
